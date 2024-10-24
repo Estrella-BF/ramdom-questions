@@ -23,9 +23,11 @@ export default function ShowItem() {
         </li>
     )
     return (
-        <div className="grid grid-cols-4 gap-4">
-            <h3>Questions List</h3>
-            <ul className="m-4">{listComponents}</ul>
+        <div className="m-5 grid grid-rows-3 grid-flow-col">
+            <div className="flex flex-col">
+                <h3 className="mb-2 font-semibold text-lg ">Questions List</h3>
+                <ul className="font-light">{listComponents}</ul>
+            </div>
         </div>
 
     )
