@@ -9,6 +9,7 @@ export const InputItem = () => {
     }
     const [_itemsContext, setItemsContext ] = useContext(ItemContext);
     const [item, setItem] = useState<Item>(initialItemState);
+    const [ disabledButton, setDisabledButton ] = useState(true);
     const firstInputRef = useRef<HTMLInputElement>(null)
 
     const onClick = () => {
@@ -17,8 +18,13 @@ export const InputItem = () => {
         setItem(initialItemState);
     }
 
+    const validateForm = () => {
+        if (item.answer && item.title) {
+            setDisabledButton(false);
+        }
+    }
+
     const addItem = (key: KeyItem, value: string) => {
-        console.log('---listitem:', item)
         let itemObject: Item = {} as Item;
         itemObject[key as keyof Item] = value;
         setItem({...item, ...itemObject});
@@ -27,6 +33,10 @@ export const InputItem = () => {
     useEffect(() => {
         firstInputRef.current?.focus()
     }, []);
+
+    useEffect(() => {
+        validateForm();
+    }, [item])
 
     return(
         <div className="grid grid-cols-3 gap-4 m-4">
@@ -61,7 +71,8 @@ export const InputItem = () => {
                     </label>   
                     <div className="content-end ml-6">
                         <button 
-                        aria-disabled={true}
+                        disabled={disabledButton}
+                        aria-disabled={disabledButton}
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
                         onClick={onClick}
                         >
@@ -72,8 +83,7 @@ export const InputItem = () => {
        
             </div>
 
-
- {/*            <div className="col-span-1 flex">
+{/*            <div className="col-span-1 flex">
                 <div className="flex justify-around items-center content-center	self-center w-full">
                     <button 
                     disabled={true}
@@ -81,7 +91,7 @@ export const InputItem = () => {
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
                     onClick={onClick}
                     >
-                        Add
+                        Ramdom Question
                     </button>
                     <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                         Remote
