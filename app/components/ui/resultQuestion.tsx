@@ -13,7 +13,7 @@ export const ResultQuestion = ({questionSelected}: ResultQuestionParams) => {
     };
 
     return (
-        <div className="mt-6">
+        <div className="result-questions mt-6 bg-white">
             <div>
                 <p className="inline-block text-lg font-bold">Question:</p>
                 <button 

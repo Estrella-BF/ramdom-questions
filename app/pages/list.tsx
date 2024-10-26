@@ -13,12 +13,12 @@ export const List = () => {
     }
 
     return (
-        <div className="container m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-6 gap-6">
+        <div className="list-component container m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-6 gap-6">
             <div className="col-span-1 sm:col-span-2 md:col-span-2">
                 <InputItem />
                 <ShowItem />
             </div>
-            <div className="col-span-1 sm:col-span-2 md:col-span-2">
+            <div className="col-span-1 sm:col-span-2 md:col-span-2 bg-white p-4 rounded">
                 <Questions questionSelected={handleQuestionSelected} />
                 <ResultQuestion questionSelected={questionSelected} />
             </div>

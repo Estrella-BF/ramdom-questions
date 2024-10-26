@@ -35,7 +35,7 @@ export default function ShowItem() {
     );
 
     return (
-        <div className="m-6 grid grid-rows-3 grid-flow-col">
+        <div className="showItem-component mt-6">
             <div className="flex flex-col">
                 <div className="flex justify-between content-center mb-4">
                     <p className="font-semibold text-lg ">Questions List</p>

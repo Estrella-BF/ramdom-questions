@@ -40,7 +40,7 @@ export const InputItem = () => {
     }, [item])
 
     return(
-        <div className="flex justify-between">
+        <div className="item-component flex justify-between">
             <label className="block">
                 <span className="block text-sm font-medium text-slate-700">Add Title Item</span>
                 <input type="text" placeholder="...add title" className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400

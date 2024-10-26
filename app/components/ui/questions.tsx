@@ -22,7 +22,7 @@ export const Questions = ({questionSelected}: QuestionsParam) => {
     }, [listItemsContext])
 
     return (
-        <div className="flex justify-center">
+        <div className="questions-component flex justify-center bg-white">
           <button 
                 aria-disabled={!enableQuestionButton}
                 disabled={!enableQuestionButton}
