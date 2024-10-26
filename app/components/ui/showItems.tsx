@@ -3,21 +3,21 @@ import { ListItemContext, Item } from "../context/listContext";
 
 export default function ShowItem() {
     const [ itemsContext ] = useContext(ListItemContext);
-    const [ listAddedItems, setListAddedItems ] = useState<Item[]>([{} as Item]);
 
     useEffect(() => {
-        let newList = []
+        /* 
+        let newList = [];
         if (Object.keys(listAddedItems[0]).length === 0) {
             newList.push(itemsContext);
-            setListAddedItems(newList);
+            // setListAddedItems(newList);
         } else {
             newList = [...listAddedItems];
-            newList.push(itemsContext);
+            // newList.push(itemsContext);
             setListAddedItems(newList);
-        }
+        } */
     }, [itemsContext]);
 
-    const listComponents = listAddedItems.map((item: Item, index: number) => 
+    const listComponents = itemsContext.map((item: Item, index: number) => 
         <li key={ `${index}-${item.title}` }>
             { item.title }
         </li>

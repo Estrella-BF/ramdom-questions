@@ -7,15 +7,15 @@ export const InputItem = () => {
         title: '',
         answer: ''
     };
-    const [_itemsContext, setItemsContext ] = useContext(ListItemContext);
+    const [ _listItemContext, setListItemContext ] = useContext(ListItemContext);
     const [item, setItem] = useState<Item>(initialItemState);
     const [ disabledButton, setDisabledButton ] = useState(true);
     const firstInputRef = useRef<HTMLInputElement>(null)
 
     const onClick = () => {
-        setItemsContext(item);
         // clean inputs
         setItem(initialItemState);
+        setListItemContext((oldData: Item[]) => [...oldData, item]);
         setDisabledButton(true);
     }
 

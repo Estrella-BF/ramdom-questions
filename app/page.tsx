@@ -7,7 +7,7 @@ import { ListItemContext, Item } from "./components/context/listContext";
 
 export default function Home() {
 
-  const [ listItemsContext, setListItemsContext ] = useState<Item>({} as Item);
+  const [ listItemsContext, setListItemsContext ] = useState<Item[]>([]);
 
   const handleListItems = () => {
 

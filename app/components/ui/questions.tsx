@@ -6,7 +6,6 @@ export const Questions = () => {
     const [ itemsContext, setItemsContext ] = useContext(ListItemContext);
 
     useEffect(() => {
-        console.log('-----000 itemsContext:', itemsContext)
     }, [itemsContext]);
 
     return (
