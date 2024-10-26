@@ -10,10 +10,10 @@ export interface Item {
     answer: string;
 }
 
-type ItemContext = {
+/* type ItemContext = {
     itemsContext: Item,
     setItemsContext(item: Item): void
-}
+} */
 
 export const ListItemContext = createContext<[Item[], Dispatch<SetStateAction<Item[]>>]>(
     [[], () => {}]

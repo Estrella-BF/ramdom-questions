@@ -1,5 +1,5 @@
 'use client'
-import { useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { KeyItem, ListItemContext, Item } from "../context/listContext";
 
 export const InputItem = () => {
@@ -7,7 +7,7 @@ export const InputItem = () => {
         title: '',
         answer: ''
     };
-    const [ _listItemContext, setListItemContext ] = useContext(ListItemContext);
+    const [ listItemContext, setListItemContext ] = useContext(ListItemContext);
     const [item, setItem] = useState<Item>(initialItemState);
     const [ disabledButton, setDisabledButton ] = useState(true);
     const firstInputRef = useRef<HTMLInputElement>(null)
@@ -15,18 +15,24 @@ export const InputItem = () => {
     const onClick = () => {
         // clean inputs
         setItem(initialItemState);
-        setListItemContext((oldData: Item[]) => [...oldData, item]);
+        setListItemContext(() => [...listItemContext, item]);
         setDisabledButton(true);
     }
 
-    const validateForm = () => {
+/*     const validateForm = () => {
         if (item.answer && item.title) {
             setDisabledButton(false);
         }
-    }
+    } */
+
+    const validateForm = useCallback(() => {
+        if (item.answer && item.title) {
+            setDisabledButton(false);
+        }
+    }, [disabledButton, item])
 
     const addItem = (key: KeyItem, value: string) => {
-        let itemObject: Item = {} as Item;
+        const itemObject: Item = {} as Item;
         itemObject[key as keyof Item] = value;
         setItem({...item, ...itemObject});
     }
@@ -37,7 +43,7 @@ export const InputItem = () => {
 
     useEffect(() => {
         validateForm();
-    }, [item])
+    }, [ item, validateForm ])
 
     return(
         <div className="item-component flex justify-between">

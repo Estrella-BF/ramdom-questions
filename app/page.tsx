@@ -1,5 +1,5 @@
 'use client'
-import Image from "next/image";
+// import Image from "next/image";
 import { List } from "./pages/list";
 import { useEffect, useState } from "react";
 import { ListItemContext, Item } from "./components/context/listContext";
@@ -8,10 +8,6 @@ import { ListItemContext, Item } from "./components/context/listContext";
 export default function Home() {
 
   const [ listItemsContext, setListItemsContext ] = useState<Item[]>([]);
-
-  const handleListItems = () => {
-
-  }
 
   useEffect(() => {
   }, []);

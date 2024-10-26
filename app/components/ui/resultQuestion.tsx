@@ -1,5 +1,5 @@
-import { useContext, useState } from "react"
-import { Item, ListItemContext } from "../context/listContext"
+import { useState } from "react"
+import { Item } from "../context/listContext"
 
 type ResultQuestionParams = {
     questionSelected: Item;

@@ -1,6 +1,5 @@
-import React, { useCallback, useContext, useEffect, useState } from "react"
-import { createContext } from "vm"
-import { Item, ListItemContext } from "../context/listContext"
+import React, { useCallback, useContext, useEffect, useState } from "react";
+import { Item, ListItemContext } from "../context/listContext";
 
 interface QuestionsParam {
     questionSelected: (item: Item) => void; 
@@ -19,7 +18,7 @@ export const Questions = ({questionSelected}: QuestionsParam) => {
         const listIndexes = listItemsContext.length;
         const getRamdonIndex = Math.trunc(Math.random() * listIndexes);
         questionSelected(listItemsContext[getRamdonIndex]);
-    }, [listItemsContext])
+    }, [listItemsContext, questionSelected])
 
     return (
         <div className="questions-component flex justify-center bg-white">
