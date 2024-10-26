@@ -15,6 +15,6 @@ type ItemContext = {
     setItemsContext(item: Item): void
 }
 
-export const ItemContext = createContext<[Item, Dispatch<SetStateAction<Item>>]>(
+export const ListItemContext = createContext<[Item, Dispatch<SetStateAction<Item>>]>(
     [{} as Item, () => {}]
 );

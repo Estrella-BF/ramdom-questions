@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react"
-import { ItemContext, Item } from "../context/listContext";
+import { ListItemContext, Item } from "../context/listContext";
 
 export default function ShowItem() {
-    const [ itemsContext ] = useContext(ItemContext);
+    const [ itemsContext ] = useContext(ListItemContext);
     const [ listAddedItems, setListAddedItems ] = useState<Item[]>([{} as Item]);
 
     useEffect(() => {

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react"
 import { createContext } from "vm"
-import { ItemContext } from "../context/listContext"
+import { ListItemContext } from "../context/listContext"
 
 export const Questions = () => {
-    const [ itemsContext, setItemsContext ] = useContext(ItemContext);
+    const [ itemsContext, setItemsContext ] = useContext(ListItemContext);
 
     useEffect(() => {
         console.log('-----000 itemsContext:', itemsContext)

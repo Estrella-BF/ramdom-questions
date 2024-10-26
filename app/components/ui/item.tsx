@@ -1,13 +1,13 @@
 'use client'
 import { useContext, useEffect, useRef, useState } from "react";
-import { KeyItem, ItemContext, Item } from "../context/listContext";
+import { KeyItem, ListItemContext, Item } from "../context/listContext";
 
 export const InputItem = () => {
     const initialItemState: Item = {
         title: '',
         answer: ''
     };
-    const [_itemsContext, setItemsContext ] = useContext(ItemContext);
+    const [_itemsContext, setItemsContext ] = useContext(ListItemContext);
     const [item, setItem] = useState<Item>(initialItemState);
     const [ disabledButton, setDisabledButton ] = useState(true);
     const firstInputRef = useRef<HTMLInputElement>(null)
