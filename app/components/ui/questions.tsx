@@ -1,20 +1,35 @@
-import React, { useContext, useEffect } from "react"
+import React, { useCallback, useContext, useEffect, useState } from "react"
 import { createContext } from "vm"
-import { ListItemContext } from "../context/listContext"
+import { Item, ListItemContext } from "../context/listContext"
 
-export const Questions = () => {
-    const [ itemsContext, setItemsContext ] = useContext(ListItemContext);
+interface QuestionsParam {
+    questionSelected: (item: Item) => void; 
+}
+
+export const Questions = ({questionSelected}: QuestionsParam) => {
+    const [ listItemsContext ] = useContext(ListItemContext);
+    const [ enableQuestionButton, setEnableQuestionButton ] = useState(false);
+
 
     useEffect(() => {
-    }, [itemsContext]);
+        setEnableQuestionButton(() => listItemsContext.length > 0 );
+    }, [listItemsContext]);
+
+    const getRandomQuestion = useCallback(() => {
+        const listIndexes = listItemsContext.length;
+        const getRamdonIndex = Math.trunc(Math.random() * listIndexes);
+        questionSelected(listItemsContext[getRamdonIndex]);
+    }, [listItemsContext])
 
     return (
         <div className="flex justify-center">
           <button 
-                aria-disabled={true}
+                aria-disabled={!enableQuestionButton}
+                disabled={!enableQuestionButton}
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
+                onClick={getRandomQuestion}
                 >
-                    Make a Question
+                    Make a Ramdom Question
             </button>
         </div>
     )

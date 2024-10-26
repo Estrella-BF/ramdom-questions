@@ -40,9 +40,10 @@ export default function ShowItem() {
                 <div className="flex justify-between content-center mb-4">
                     <p className="font-semibold text-lg ">Questions List</p>
                     <button 
+                    aria-label={ itemsContext.length === 0 ? 'disable button': 'enable button' }
                     disabled={ itemsContext.length === 0 }
                     onClick={clickButtonList} 
-                    className="bg-sky-500 text-white hover:bg-sky-700 px-5 py-1 rounded text-xs font-semibold disabled:opacity-5xs0"
+                    className="bg-sky-500 text-white hover:bg-sky-700 px-5 py-1 rounded text-xs font-semibold disabled:opacity-50"
                     >
               {/*           { buttonName } */}
                         { showList ? ButtonName.Show : ButtonName.Hide }
